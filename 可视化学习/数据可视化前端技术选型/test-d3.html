@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/d3/7.0.0/d3.js"></script>
+  <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body style="height:100%">
+  <p>react</p>
+  <p>vue</p>
+  <p>Angular</p>
+  <button id="datum">datum</button>
+  <button id="data">data</button>
+</body>
+<script>
+  const body = d3.select('body')
+  const p = body.selectAll('p')
+
+  function datum() {
+    const str = "work"
+    p.datum(str);
+    p.text(function (d, i) {
+      return `${d}-${i}`
+    })
+  }
+
+  function data() {
+    const dataset = ['react', 'vue', 'Angular']
+    p.data(dataset).text(function (d, i) {
+      return `${d}-${i}`
+    })
+  }
+  document.getElementById("datum").addEventListener('click', function (e) {
+    datum()
+  })
+  document.getElementById("data").addEventListener('click', function (e) {
+    data()
+  })
+</script>
+
+</html>
