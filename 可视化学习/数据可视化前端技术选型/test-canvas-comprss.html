@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body style="height:100%">
+  <input type="file" id="upload">
+</body>
+<script>
+  const upload = document.getElementById("upload")
+  const ACCEPT = ['image/jpg', 'image/png', 'image/jpeg']
+  const MaxSize = 1024 * 1024
+  const MaxSizeSRT = '1MB'
+  upload.addEventListener('change', function (e) {
+    const [file] = e.target.files
+    if (!file) {
+      return;
+    }
+    const {
+      type: fileType,
+      size: fileSize
+    } = file;
+    if (!ACCEPT.includes(fileType)) {
+      alert(`不支持[${fileType}]文件类型！！！`)
+      return
+    }
+    if(fileSize>MaxSize)
+    {
+      alert(`不支持[${MaxSizeSRT}]`)
+      return
+    }
+  })
+</script>
+
+</html>
